@@ -1,0 +1,27 @@
+
+<div style="background-color: aliceblue;position: absolute;top: 228px;width: 85%;height: 50%;left: 8%;overflow: scroll;">
+
+  <table class="table table-striped" style="text-align: center;height: 100%;">
+    <thead>
+      <tr>
+        <!-- <th scope="col">#</th> -->
+        <th scope="col">COVER</th>
+        <th scope="col">NAME</th>
+        <th scope="col">DOR</th>
+        <th scope="col">ARTISTS</th>
+        <th scope="col">RATING</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let hero of songs; index as i" >
+        <td><img src="{{hero.image}}" style="
+            height: 206px;
+            "/></td>
+        <td  style="padding-top: 2.5%;vertical-align: middle;">{{hero.name}}</td>
+        <td  style="padding-top: 2.5%;" >{{hero.dor}}</td>
+        <td   style="padding-top: 2.5%;">{{hero.artists}}</td>
+        <td   style="padding-top: 2.5%;">{{hero.rating}}</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>

@@ -1,0 +1,143 @@
+<!-- <div class="add-photo-container">
+    
+      <input
+        #imageInput
+        type="file"
+        (change)="imageInputChange(imageInput)"
+        accept="image/*"
+      />
+      <button mat-raised-button color="blue" (click)="addImage()">
+        Add Image
+      </button>
+</div>
+   -->
+
+
+
+
+
+
+<div style="background-color: black;">
+    <div class="hero-wrap">
+
+        <div class="container" style="position: absolute;top: 7%;left:5%">
+            <div class="row no-gutters slider-text justify-content-start align-items-center" style="background-color: black;
+		opacity: 0.8;
+		position: relative;
+        top: 42px; width:55%">
+
+                <div class="col-lg-2 col"></div>
+                <div style="color: white;" class="col-lg-4 col-md-6 mt-0 mt-md-5 d-flex">
+                    <form  [formGroup]="form" class="request-form ftco-animate">
+                        <h2 style="text-align: center;">Song</h2>
+
+                        <br><br>
+                        <div class="form-group mr-2">
+                            <label for="" class="label">Name</label>
+                            <input type="input" class="form-control" id="name" required [(ngModel)]="song.name"
+                                [ngModelOptions]="{standalone: true}" name="name" placeholder="Name">
+                        </div>
+
+                        <div class="form-group mr-2">
+                            <label for="" class="label">Date of release</label>
+                            <input type="date" class="form-control" id="dor" required [(ngModel)]="song.dor"
+                                [ngModelOptions]="{standalone: true}" name="dor" placeholder="dor">
+                        </div>
+
+                        <div class="form-group mr-2">
+                            <label for="" class="label">Artists</label><img (click)="getAllArtist()" src="https://icons.iconarchive.com/icons/paomedia/small-n-flat/1024/sign-sync-icon.png" style="
+                            height: 26px;
+                            margin-left: 15px;
+                            cursor: grab;
+                        ">
+                        
+                            <div style="padding: 1em; border: 1px solid; height:93px;overflow:scroll">
+                                <div *ngFor="let data of Data; let i=index">
+                                    <label>
+                                        <input type="checkbox" [value]="data.id" (change)="onCheckboxChange($event)" />
+                                        {{data.name}}
+                                    </label>
+                                </div>
+                            </div>
+
+                            <br>
+                        <button (click)="toggleShowArtist()"  class="btn btn-primary py-3 px-4" style="height: 20px;" ><span style="position: relative;
+                            top: -11px;">Add Artist</span> </button>
+                        </div>
+
+                        <div class="form-group mr-2">
+                            <label for="" class="label">Image</label>
+                            <input #imageInput type="file" (change)="imageInputChange(imageInput)" accept="image/*" /><br><br>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="" class="label">Rating</label>
+                            <select class="form-control" id="rating" required [(ngModel)]="song.rating"
+                                [ngModelOptions]="{standalone: true}" name="rating">
+                                <option *ngFor="let pow of ratings" [value]="pow">{{pow}}</option>
+                            </select>
+                        </div>
+
+
+                        <div class="form-group">
+                            <input type="submit" (click)="onSubmit()" value="Add Song" class="btn btn-primary py-3 px-4">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="container" *ngIf="showArtist" style="position: absolute;top: 7%;left: 54%;right:0%">
+            <div class="row no-gutters slider-text justify-content-start align-items-center" style="background-color:#4db84885;
+		opacity: 0.8;
+		position: relative;height: 766px;
+        top: 42px; width:55%">
+
+                <div class="col-lg-2 col"></div>
+                <div style="color: white;" class="col-lg-4 col-md-6 mt-0 mt-md-5 d-flex">
+                    <form (ngSubmit)="addArtist()" class="request-form ftco-animate" style="    width:322px;
+                    position: relative;
+                    top: -100px;">
+                        <h2 style="text-align: center;">Artist</h2>
+
+                        <br><br>
+                        <div class="form-group mr-2">
+                            <label for="" class="label">Name</label>
+                            <input type="input" class="form-control" id="name" required [(ngModel)]="artist.name"
+                                [ngModelOptions]="{standalone: true}" name="name" placeholder="Name">
+                        </div>
+
+                        <div class="form-group mr-2">
+                            <label for="" class="label">Date of Birth</label>
+                            <input type="date" class="form-control" id="dob" required [(ngModel)]="artist.dob"
+                                [ngModelOptions]="{standalone: true}" name="dob" placeholder="dob">
+                        </div>
+
+                        <div class="form-group mr-2">
+                            <label for="" class="label">Bio</label>
+                            <input type="text" class="form-control" id="bio" required [(ngModel)]="artist.bio"
+                                [ngModelOptions]="{standalone: true}" name="bio" placeholder="bio">
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="" class="label">Rating</label>
+                            <select class="form-control" id="rating" required [(ngModel)]="artist.rating"
+                                [ngModelOptions]="{standalone: true}" name="rating">
+                                <option *ngFor="let pow of ratings" [value]="pow">{{pow}}</option>
+                            </select>
+                        </div>
+
+
+                        <div class="form-group">
+                            <input type="submit" value="Add Artist" class="btn btn-primary py-3 px-4">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

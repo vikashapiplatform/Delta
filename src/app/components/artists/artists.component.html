@@ -1,0 +1,23 @@
+
+<div style="background-color: aliceblue;position: absolute;top: 228px;width: 85%;height: 50%;left: 8%;overflow: scroll;">
+
+  <table class="table table-striped" style="text-align: center;height: 100%;">
+    <thead>
+      <tr>
+        <!-- <th scope="col">#</th> -->
+        <th scope="col">NAME</th>
+        <th scope="col">DOB</th>
+        <th scope="col">BIO</th>
+        <th scope="col">RATING</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let hero of artists; index as i" >
+        <td  >{{hero.name}}</td>
+        <td  >{{hero.dob}}</td>
+        <td  >{{hero.bio}}</td>
+        <td  >{{hero.rating}}</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>

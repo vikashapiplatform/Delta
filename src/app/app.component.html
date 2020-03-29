@@ -1,0 +1,86 @@
+<!-- <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="index.html"><img style="    position: absolute;
+      height: 66%;
+      top: 11px;" src="https://www.deltax.com/wp-content/uploads/2018/04/Delta-horizontal-revision-topbar.png"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="oi oi-menu"></span> Menu
+    </button>
+
+    <div class="collapse navbar-collapse" id="ftco-nav">
+      <ul class="navbar-nav ml-auto">
+          <li class="nav-item active"><a href="index.html" class="nav-link">Home</a></li>
+          <li>&nbsp;</li>
+    &nbsp; &nbsp; &nbsp;
+
+      </ul>
+    </div>
+  </div>
+</nav> -->
+
+
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="index.html"><img style="    position: absolute;
+    height: 66%;
+    top: 9px;" src="https://www.deltax.com/wp-content/uploads/2018/04/Delta-horizontal-revision-topbar.png"></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0" style="    position: relative;
+    left: 10%;">
+      <li class="nav-item active">
+        <a class="nav-link" href="/songs">Songs <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/artists">Artists</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/addsong">Add song</a>
+      </li>
+    </ul>
+    <form *ngIf="hasRoute()"  class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" [(ngModel)]="songName" name="songName"  placeholder="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" (click)="searchSongs()" type="submit">Search songs</button>
+    </form>
+  </div>
+</nav>
+
+<div class="hero-wrap" style="background-image: url('https://i.pinimg.com/originals/4a/20/a0/4a20a0a1ef23ee073e99d6df19914411.jpg');width: 100%;position: absolute; height: 140%;background-repeat: round;
+right: 0px;
+left: 0px;" data-stellar-background-ratio="0.5">
+  <div class="overlay"></div>
+  
+  <router-outlet></router-outlet>
+</div>
+
+
+
+<div *ngIf="showSearch" style="background-color: aliceblue;position: absolute;top: 228px;width: 85%;height: 64%;left: 8%;overflow: scroll;">
+
+  <table class="table table-striped" style="text-align: center;height: 100%;">
+    <thead>
+      <tr>
+        <!-- <th scope="col">#</th> -->
+        <th scope="col">COVER</th>
+        <th scope="col">NAME</th>
+        <th scope="col">DOR</th>
+        <th scope="col">ARTISTS</th>
+        <th scope="col">RATING</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let hero of songs; index as i" >
+        <td><img src="{{hero.image}}" style="
+            height: 206px;
+            "/></td>
+        <td  style="padding-top: 2.5%;">{{hero.name}}</td>
+        <td  style="padding-top: 2.5%;" >{{hero.dor}}</td>
+        <td   style="padding-top: 2.5%;">{{hero.artists}}</td>
+        <td   style="padding-top: 2.5%;">{{hero.rating}}</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
